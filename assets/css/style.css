@@ -1,0 +1,11 @@
+body {
+	background-image: url(../images/background2.jpg);
+}
+
+.jumbotron {
+	background: rgba(61, 64, 68, 0.7);
+}
+
+.card {
+	opacity: 0.9;
+}
