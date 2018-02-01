@@ -39,8 +39,32 @@ $("#add-train").on("click", function(event){
 	$("#frequency").val("");
 });
 
-// create function to add new train info from firebase onto the html table
+database.ref().on("child_added", function(childSnapshot){
+	console.log(childSnapshot);
+	
+	var trainName = childSnapshot.val().name;
+	var trainDes = childSnapshot.val().des;
+	var trainStart = childSnapshot.val().start;
+	var trainFreq = childSnapshot.val().freq;
 
-database.ref().on("value", function(snapshot){
-  
+	// Formats start time 
+	// var formatStart = moment
+  	
+	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDes + "</td><td>" + trainFreq + "</td><td>" + trainStart + "</td></tr>"); 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
