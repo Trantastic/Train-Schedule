@@ -47,10 +47,17 @@ database.ref().on("child_added", function(childSnapshot){
 	var trainStart = childSnapshot.val().start;
 	var trainFreq = childSnapshot.val().freq;
 
-	// Formats start time 
-	// var formatStart = moment
+	// How far (min away) is train
+	var minutesAway = moment(trainStart, "HH:mm").toNow();
+	console.log(minutesAway);
+
+	var tba = "tba";
+
+	// Formats next train time
+	// var formatFreq = moment().format();
+	// console.log(formatFreq);
   	
-	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDes + "</td><td>" + trainFreq + "</td><td>" + trainStart + "</td></tr>"); 
+	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDes + "</td><td>" + trainFreq + "</td><td>" + tba + "</td><td>" + minutesAway + "</td></tr>"); 
 });
 
 
