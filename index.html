@@ -1,60 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Add a train schedule</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <title>Add a train schedule</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-	<div class="jumbotron jumbotron-fluid text-white">
-	  <div class="container">
-	    <h1 class="display-4">Fluid jumbotron</h1>
-	    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-	  </div>
-	</div>
-<!-- Train schedules -->
-	<div class="card">
-		<h5 class="card-header bg-dark text-white">Current Train Schedule</h5>
-		<div class="card-body">
-    		<h5 class="card-title">Special title treatment</h5>
-    		<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-  	 	</div>
-	</div>
-<!-- Add a train -->
-	<div class="card">
-		<h5 class="card-header bg-dark text-white">Add a Train</h5>
-		<div class="card-body">
-			<form>
-				<label for="train-name">Train Name</label>
-				<br>
-				<input id="train-name" type="text">
-				<br>
-				<label for="destination">Destination</label>
-				<br>
-				<input id="destination" type="text">
-				<br>
-				<label for="first-train">First Train Time</label>
-				<br>
-				<input id="first-train" type="text">
-				<br>
-				<label for="frequency">Frequency</label>
-				<br>
-				<input id="frequency" type="text">  
-	    		<br>
-	    		<input class="btn btn-primary" type=submit value="submit">
-    		</form>
-  	 	</div>
-	</div>
+    <div class="jumbotron jumbotron-fluid text-white">
+        <div class="container">
+            <h1 class="display-4">Fluid jumbotron</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+    </div>
+    <!-- Train schedules -->
+    <div class="container">
+        <div class="card border-0 mb-4">
+            <h5 class="card-header bg-dark text-white">Current Train Schedule</h5>
+            <div class="card-body">
+                <table class="card-title table">
+                	<thead>
+	                	<tr class="table-header">
+	                		<th>Train Name</th>
+	                		<th>Destination</th>
+	                		<th>Frequency</th>
+	                		<th>Next Arrival</th>
+	                		<th>Minutes Away</th>
+	                	</tr>
+                	</thead>
+                	<tbody>
+                	</tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Add a train -->
+        <div class="card border-0">
+            <h5 class="card-header bg-dark text-white">Add a Train Schedule</h5>
+            <div class="card-body">
+                <form>
+                    <label for="train-name">Train Name</label>
+                    <br>
+                    <input id="train-name" type="text">
+                    <br>
+                    <label for="destination">Destination</label>
+                    <br>
+                    <input id="destination" type="text">
+                    <br>
+                    <label for="first-train">First Train Time</label>
+                    <br>
+                    <input id="first-train" type="text">
+                    <br>
+                    <label for="frequency">Frequency</label>
+                    <br>
+                    <input id="frequency" type="text">
+                    <br>
+                    <input id="add-train" class="btn btn-warning" type=submit value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- JS file -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
-
-<!-- Firebase -->
-	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-<!-- jQuery -->
-	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>
