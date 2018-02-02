@@ -1,5 +1,6 @@
 body {
 	background-image: url(../images/background2.jpg);
+	background-size: cover;
 }
 
 .jumbotron {
@@ -8,4 +9,27 @@ body {
 
 .card {
 	opacity: 0.9;
+}
+
+#train {
+	height: 26px;
+	width: 26px;
+}
+
+td, th {
+	text-align: center;
+}
+
+input:not(#add-train) {
+	margin-bottom: 1.5em;
+	width: 100%;
+}
+
+label {
+	font-weight: bold;
+}
+
+#add-train {
+	font-weight: bold;
+	width: 10%;
 }

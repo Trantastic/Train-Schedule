@@ -40,24 +40,26 @@ $("#add-train").on("click", function(event){
 });
 
 database.ref().on("child_added", function(childSnapshot){
-	console.log(childSnapshot);
+	// console.log(childSnapshot);
 	
 	var trainName = childSnapshot.val().name;
 	var trainDes = childSnapshot.val().des;
 	var trainStart = childSnapshot.val().start;
 	var trainFreq = childSnapshot.val().freq;
 
-	// How far (min away) is train
-	var minutesAway = moment(trainStart, "HH:mm").toNow();
-	console.log(minutesAway);
-
-	var tba = "tba";
-
-	// Formats next train time
-	// var formatFreq = moment().format();
-	// console.log(formatFreq);
+	// Formatting time
+	var formatTime = moment(trainStart, "hh:mm").subtract(1, "years");
+	// Grabbing current time
+	var currentTime = moment();
+	var differenceTime = moment().diff(moment(formatTime), "minutes");
+	var timeRemain = differenceTime % trainFreq;
+	// console.log(timeRemain);
+	var minAway = trainFreq - timeRemain;
+	var nextT = moment().add(minAway, "minutes");
+	// Formatting next train time
+	var nextTrain = moment(nextT).format("hh:mm A");
   	
-	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDes + "</td><td>" + trainFreq + "</td><td>" + tba + "</td><td>" + minutesAway + "</td></tr>"); 
+	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDes + "</td><td>" + trainFreq + "</td><td>" + nextTrain + "</td><td>" + minAway + "</td></tr>"); 
 });
 
 
