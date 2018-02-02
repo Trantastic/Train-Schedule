@@ -15,11 +15,13 @@ var database = firebase.database();
 $("#add-train").on("click", function(event){
 	event.preventDefault();
 
+	//Assigning values from input
 	var trainName = $("#train-name").val().trim();
 	var trainDes = $("#destination").val().trim();
 	var trainStart = $("#first-train").val().trim();
 	var trainFreq = $("#frequency").val().trim();
-	
+	// Assigning unique id
+	// for(var i = 0; i >)
 	// Object to to hold values and push into firebase
 	var newTrain = {
 		name: trainName,
@@ -58,9 +60,11 @@ database.ref().on("child_added", function(childSnapshot){
 	var nextT = moment().add(minAway, "minutes");
 	// Formatting next train time
 	var nextTrain = moment(nextT).format("hh:mm A");
+
   	
 	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDes + "</td><td>" + trainFreq + "</td><td>" + nextTrain + "</td><td>" + minAway + "</td></tr>"); 
-});
+}, function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);});
 
 
 
